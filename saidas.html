@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="saidas.css">
+    <title>Saidas</title>
+</head>
+<body>
+        <div class="container">
+
+    <form id="form_saida">
+
+<select name="produto" id="produto" required>
+    <option value="">Selecione um produto</option>
+    
+</select>
+<input type="number" id="quantidade_saida" placeholder="Quantidade de saida: " main="1" step="1" required>
+<button>Registrar saida</button>
+<a href="dashboard.html">Cancelar</a>
+</form>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="saida.js"></script>
+</body>
+</html>
