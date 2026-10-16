@@ -1,72 +1,89 @@
-<!DOCTYPE html>
-    <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" href="dashboard.css">
-            <title>Controle de Estoque - Dashboard</title>
-            <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-            <script src="script.js" defer></script>
-
-        </head>
-        <body>
-            <header class="topo">
-                <h1>Bem-vindo ao Controle de Estoque</h1>
-                    <input type="text" id="pesquisa_produto" placeholder="Pesquisar produto...">
-                <h1><a href="index.html">Sair</a></h1>
-            </header>
-            <div class="layout">
-
-    <nav class="menu">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="dashboard.css" />
+    <title>Controle de Estoque - Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="topo">
+      <h1>Bem-vindo ao Controle de Estoque</h1>
+      <input
+        type="text"
+        id="pesquisa_produto"
+        placeholder="Pesquisar produto..."
+      />
+      <h1><a href="index.html">Sair</a></h1>
+    </header>
+    <div class="layout">
+      <nav class="menu">
         <h2>Menu</h2>
 
         <ul>
-            <li><a href="form_prod.html">Cadastrar Produtos</a></li>
-            <li><a href="entradas.html">Entradas</a></li>
-            <li><a href="saidas.html">Saídas</a></li>
-            <li><a href="#">Relatórios</a></li>
-            <hr>
+          <li><a href="form_prod.html">Cadastrar Produtos</a></li>
+          <li><a href="entradas.html">Entradas</a></li>
+          <li><a href="saidas.html">Saídas</a></li>
+          <li><a href="#">Relatórios</a></li>
+          <hr />
         </ul>
-    </nav>
+      </nav>
 
-    <main class="conteudo">
-
+      <main class="conteudo">
         <h2>Produtos cadastrados</h2>
 
         <table>
-            <thead>
-                <tr>
-                    <th>id</th>
-                    <th>Nome</th>
-                    <th>Quantidade</th>
-                    <th>Quantidade mínima</th>
-                    <th>Preço</th>
-                    <th>Fornecedor</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>Nome</th>
+              <th>Quantidade</th>
+              <th>Quantidade mínima</th>
+              <th>Preço</th>
+              <th>Fornecedor</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
 
-            <tbody id="lista_produtos"></tbody>
+          <tbody id="lista_produtos"></tbody>
         </table>
 
         <form id="form_edicao">
-            <div class="modal-conteudo">
+          <div class="modal-conteudo">
             <h2>Editar produto</h2>
 
-                <input type="text" id="editar_nome" placeholder="Nome">
-                <input type="number" id="editar_quantidade" placeholder="Quantidade">
-                <input type="number" id="editar_quantidade_minima" placeholder="Quantidade mínima">
-                <input type="number" id="editar_preco" placeholder="Preço" step="0.01">
-                <input type="text" id="editar_fornecedor" placeholder="Fornecedor">
+            <input type="text" id="editar_nome" placeholder="Nome" />
+            <input
+              type="number"
+              id="editar_quantidade"
+              placeholder="Quantidade"
+            />
+            <input
+              type="number"
+              id="editar_quantidade_minima"
+              placeholder="Quantidade mínima"
+            />
+            <input
+              type="number"
+              id="editar_preco"
+              placeholder="Preço"
+              step="0.01"
+            />
+            <input
+              type="text"
+              id="editar_fornecedor"
+              placeholder="Fornecedor"
+            />
 
-                <div class="botoes-container">
-                <button id="btn_salvar_edicao">Salvar alterações</button>
-                <button id="btn_cancelar_edicao">Cancelar</button>
+            <div class="botoes-container">
+              <button id="btn_salvar_edicao">Salvar alterações</button>
+              <button id="btn_cancelar_edicao">Cancelar</button>
             </div>
-        </div>
-    </form>
-    </main>
-
-</div>
-            </body>
-    </html>
+          </div>
+        </form>
+      </main>
+    </div>
+  </body>
+</html>
