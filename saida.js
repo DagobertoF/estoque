@@ -3,77 +3,111 @@ const supabaseKey = "sb_publishable_th74EEn9qPhWqlvnjXpuqA_L3T3v4wC";
 
 const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
 
-const produtoSelect = document.getElementById("produto");
 
+const produtoSelect = document.getElementById("produto");
+const quantidadeSaida = document.getElementById("quantidade_saida");
+const formSaida = document.getElementById("form_saida");
+const listaSaidas = document.getElementById("lista_saidas");
+
+// Carregar os produtos no select
 async function carregarProdutosSaida() {
-  const { data, error } = await supabaseClient.from("produtos").select("*");
+  const { data, error } = await supabaseClient
+    .from("produtos")
+    .select("id, nome")
+    .order("nome");
+
+  if (error) {
+    console.error("Erro ao carregar produtos:", error);
+    alert("Não foi possível carregar os produtos.");
+    return;
+  }
+
+  produtoSelect.replaceChildren(
+    new Option("Selecione um produto", "")
+  );
 
   data.forEach(function (produto) {
-    const opcao = document.createElement("option");
-
-    opcao.value = produto.id;
-    opcao.textContent = produto.nome;
-
+    const opcao = new Option(produto.nome, produto.id);
     produtoSelect.appendChild(opcao);
   });
 }
 
-carregarProdutosSaida();
+// Carregar o histórico de saídas
+async function carregarSaidas() {
+  listaSaidas.replaceChildren();
 
-produtoSelect.addEventListener("change", function () {
-  console.log(produtoSelect.value);
-});
+  const { data, error } = await supabaseClient
+    .from("saidas")
+    .select("id, quantidade, data_saida, produtos(nome)")
+    .order("data_saida", { ascending: false });
 
-const quantidadeSaida = document.getElementById("quantidade_saida");
+  if (error) {
+    console.error("Erro ao carregar saídas:", error);
+    listaSaidas.innerHTML =
+      '<tr><td colspan="3">Erro ao carregar histórico.</td></tr>';
+    return;
+  }
 
-quantidadeSaida.addEventListener("input", function () {
-  console.log("Quantidade:", quantidadeSaida.value);
-});
+  if (data.length === 0) {
+    listaSaidas.innerHTML =
+      '<tr><td colspan="3">Nenhuma saída registrada.</td></tr>';
+    return;
+  }
 
-const formSaida = document.getElementById("form_saida");
+  data.forEach(function (saida) {
+    const linha = document.createElement("tr");
 
+    const colunaProduto = document.createElement("td");
+    colunaProduto.textContent = saida.produtos.nome;
+
+    const colunaQuantidade = document.createElement("td");
+    colunaQuantidade.textContent = saida.quantidade;
+
+    const colunaData = document.createElement("td");
+    colunaData.textContent = new Date(
+      saida.data_saida
+    ).toLocaleString("pt-BR");
+
+    linha.append(colunaProduto, colunaQuantidade, colunaData);
+    listaSaidas.appendChild(linha);
+  });
+}
+
+// Registrar uma saída
 formSaida.addEventListener("submit", async function (event) {
   event.preventDefault();
 
   const idProduto = produtoSelect.value;
   const quantidade = Number(quantidadeSaida.value);
 
-  // 1. Validar a quantidade
+  if (!idProduto) {
+    alert("Selecione um produto.");
+    return;
+  }
+
   if (!Number.isInteger(quantidade) || quantidade <= 0) {
     alert("Digite uma quantidade inteira maior que zero.");
     return;
   }
 
-  // 2. Buscar a quantidade atual do produto
-  const { data, error } = await supabaseClient
-    .from("produtos")
-    .select("quantidade")
-    .eq("id", idProduto)
-    .single();
+  const { error } = await supabaseClient.rpc("registrar_saida", {
+    p_produto_id: Number(idProduto),
+    p_quantidade: quantidade
+  });
 
   if (error) {
-    console.error("Erro ao buscar produto:", error);
-    alert("Não foi possível consultar o produto.");
+    console.error("Erro ao registrar saída:", error);
+    alert("Não foi possível registrar a saída: " + error.message);
     return;
   }
 
-  // 3. Calcular a nova quantidade
-  const novaQuantidade = Number(data.quantidade) - quantidade;
+  alert("Saída registrada com sucesso!");
 
-  // 4. Atualizar o produto no Supabase
-  const { error: erroAtualizacao } = await supabaseClient
-    .from("produtos")
-    .update({ quantidade: novaQuantidade })
-    .eq("id", idProduto);
+  formSaida.reset();
 
-  if (erroAtualizacao) {
-    console.error("Erro ao atualizar estoque:", erroAtualizacao);
-    alert("Não foi possível registrar a saida.");
-    return;
-  }
-
-  // 5. Informar que deu certo
-  alert("Saida registrada com sucesso!");
-
-  formEntrada.reset();
+  await carregarSaidas();
 });
+
+// Inicializar a página
+carregarProdutosSaida();
+carregarSaidas();

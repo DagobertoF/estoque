@@ -7,6 +7,9 @@
     <title>Saidas</title>
   </head>
   <body>
+    <header class="cabecalho"> <a href="dashboard.html">← Menu</a>
+  <h1>Saídas de produtos</h1>
+</header>
     <div class="container">
       <form id="form_saida">
         <select name="produto" id="produto" required>
@@ -21,8 +24,27 @@
           required
         />
         <button>Registrar saida</button>
-        <a href="dashboard.html">Cancelar</a>
+        <button type="reset">Limpar</button>
       </form>
+      <section class="historico">
+  <h2>Histórico de saídas</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Produto</th>
+        <th>Quantidade</th>
+        <th>Data</th>
+      </tr>
+    </thead>
+
+    <tbody id="lista_saidas">
+      <tr>
+        <td colspan="3">Carregando saídas...</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="saida.js"></script>
