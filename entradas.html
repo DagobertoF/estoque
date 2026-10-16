@@ -1,26 +1,30 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="entradas.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="entradas.css" />
     <title>Entradas</title>
-</head>
-<body>
-        <div class="container">
-
-    <form id="form_entrada">
-
-<select name="produto" id="produto" required>
-    <option value="">Selecione um produto</option>
-    
-</select>
-<input type="number" id="quantidade_entrada" placeholder="Quantidade de entrada: " main="1" step="1" required>
-<button>Registrar entrada</button>
-<a href="dashboard.html">Cancelar</a>
-</form>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="entrada.js"></script>
-</body>
+  </head>
+  <body>
+    <div class="container">
+      <form id="form_entrada">
+        <select name="produto" id="produto" required>
+          <option value="">Selecione um produto</option>
+        </select>
+        <input
+          type="number"
+          id="quantidade_entrada"
+          placeholder="Quantidade de entrada: "
+          main="1"
+          step="1"
+          required
+        />
+        <button>Registrar entrada</button>
+        <a href="dashboard.html">Cancelar</a>
+      </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="entrada.js"></script>
+  </body>
 </html>

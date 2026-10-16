@@ -1,94 +1,93 @@
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-     gap: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
 }
 
-#form_saida{
-    width: 400px;
-    padding: 30px;
-    background-color: #1d4ed8;
-    margin-top: 20px;
-    border-radius: 16px;
-    box-shadow: 50px 50px 50px rgba(0,0,0,0.30);
+#form_saida {
+  width: 400px;
+  padding: 30px;
+  background-color: #1d4ed8;
+  margin-top: 20px;
+  border-radius: 16px;
+  box-shadow: 50px 50px 50px rgba(0, 0, 0, 0.3);
 }
 
-#container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 90%;
-    max-width: 600px;
-    margin: auto;
-    background-color: #1d4ed8;
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 600px;
+  margin: auto;
+  background-color: #1d4ed8;
 }
 
-#form_saida input{
-    width: 100%;
-    padding: 14px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 15px;
-    box-sizing: border-box;
+#form_saida input {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  box-sizing: border-box;
 }
 
 input {
-    padding: 12px;
-    font-size: 18px;
+  padding: 12px;
+  font-size: 18px;
 }
 
-#form_saida button{
-    padding: 12px;
-    border: solid white;
-    border-radius: 100px;
-    background-color: #2563eb;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
+#form_saida button {
+  padding: 12px;
+  border: solid white;
+  border-radius: 100px;
+  background-color: #2563eb;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
 }
 
-button:hover{
-    background-color: #1e40af;
+button:hover {
+  background-color: #1e40af;
 }
 
-#form_saida a{
-    padding: 12px;
-    border: solid white;
-    border-radius: 100px;
-    background-color: #2563eb;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    text-decoration: none;
-
+#form_saida a {
+  padding: 12px;
+  border: solid white;
+  border-radius: 100px;
+  background-color: #2563eb;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
 }
 
-a:hover{
-    background-color: #1e40af;
+a:hover {
+  background-color: #1e40af;
 }
 
 #produto {
-    width: 100%;
-    padding: 12px 14px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #fff;
-    font-size: 16px;
-    color: #333;
-    cursor: pointer;
-    outline: none;
-    transition: 0.2s;
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  outline: none;
+  transition: 0.2s;
 }
 
 #produto:focus {
-    border-color: #333;
-    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08);
+  border-color: #333;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08);
 }
