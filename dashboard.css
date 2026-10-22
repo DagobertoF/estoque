@@ -239,19 +239,36 @@ td button:hover {
 }
 
 @media (max-width: 768px) {
+  .conteudo {
+    padding-left: 35px;
+  }
   .topo {
     flex-wrap: wrap;
     gap: 10px;
   }
   .topo h1 {
-    font-size: 12px;
-  }
-  .topo input {
-    font-size: 7px;
-    width: 20%;
+    font-size: 9px;
   }
 
-  .topo h1 a {
+  .topo input {
+    font-size: 7px;
+    width: 30%;
+    height: 12%;
+  }
+
+  .topo h1 a{
+    font-size: 2px;
+  }
+
+  .menu{
+    width: 30%;
+  }
+
+  .menu h2{
+    font-size: 15px;
+  }
+
+  .menu a{
     font-size: 12px;
   }
 }
