@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Estoque - Relatórios</title>
+    <link rel="stylesheet" href="relatorios.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="relatorios.js" defer></script>
+</head>
+<body>
+    <header class="topo">
+        <h1>Controle de Estoque</h1>
+        <a class="sair" href="index.html">Sair</a>
+    </header>
+
+    <div class="layout">
+        <nav class="menu">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="dashboard.html">Produtos</a></li>
+                <li><a href="entradas.html">Entradas</a></li>
+                <li><a href="saidas.html">Saídas</a></li>
+                <li><a class="ativo" href="relatorios.html">Relatórios</a></li>
+                <hr>
+            </ul>
+        </nav>
+
+        <main class="conteudo">
+            <div class="titulo-pagina">
+                <div>
+                    <h2>Relatórios do estoque</h2>
+                    <p>Acompanhe os produtos e identifique o que precisa de reposição.</p>
+                </div>
+                <button id="btn-atualizar" class="btn-principal" type="button">Atualizar dados</button>
+            </div>
+
+            <p id="mensagem" class="mensagem" role="status">Carregando informações...</p>
+
+            <section class="resumo" aria-label="Resumo do estoque">
+                <article class="cartao">
+                    <span class="cartao-label">Produtos cadastrados</span>
+                    <strong id="total-produtos">—</strong>
+                    <small>Tipos de produtos</small>
+                </article>
+                <article class="cartao">
+                    <span class="cartao-label">Unidades em estoque</span>
+                    <strong id="total-unidades">—</strong>
+                    <small>Soma das quantidades</small>
+                </article>
+                <article class="cartao">
+                    <span class="cartao-label">Estoque baixo</span>
+                    <strong id="total-baixo">—</strong>
+                    <small>Na quantidade mínima ou abaixo</small>
+                </article>
+                <article class="cartao">
+                    <span class="cartao-label">Valor estimado</span>
+                    <strong id="valor-estoque">—</strong>
+                    <small>Quantidade × preço cadastrado</small>
+                </article>
+            </section>
+
+            <section class="painel">
+                <div class="cabecalho-secao">
+                    <div>
+                        <h3>Produtos cadastrados</h3>
+                        <p>Consulte o saldo e o valor estimado de cada item.</p>
+                    </div>
+                    <input id="pesquisa-relatorio" type="search" placeholder="Pesquisar produto..." aria-label="Pesquisar produto">
+                </div>
+                <div class="tabela-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Produto</th>
+                                <th>Quantidade</th>
+                                <th>Qtd. mínima</th>
+                                <th>Preço unitário</th>
+                                <th>Valor em estoque</th>
+                                <th>Fornecedor</th>
+                                <th>Situação</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela-produtos">
+                            <tr><td colspan="7">Carregando produtos...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="painel">
+                <div class="cabecalho-secao">
+                    <div>
+                        <h3>Produtos que precisam de atenção</h3>
+                        <p>Itens cuja quantidade atual está igual ou abaixo da quantidade mínima.</p>
+                    </div>
+                </div>
+                <div class="tabela-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Produto</th>
+                                <th>Quantidade atual</th>
+                                <th>Quantidade mínima</th>
+                                <th>Fornecedor</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela-baixo">
+                            <tr><td colspan="4">Carregando...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="painel">
+                <div class="cabecalho-secao">
+                    <div>
+                        <h3>Histórico de movimentações</h3>
+                        <p>Movimentações encontradas nas tabelas de entradas e saídas.</p>
+                    </div>
+                    <select id="filtro-movimento" aria-label="Filtrar movimentações">
+                        <option value="todas">Todas</option>
+                        <option value="entrada">Somente entradas</option>
+                        <option value="saida">Somente saídas</option>
+                    </select>
+                </div>
+                <div class="tabela-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tipo</th>
+                                <th>Produto</th>
+                                <th>Quantidade</th>
+                                <th>Data</th>
+                                <th>Observação</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela-movimentos">
+                            <tr><td colspan="5">Carregando movimentações...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p id="aviso-movimentos" class="nota"></p>
+            </section>
+            <p class="rodape">Controle de Estoque • Relatórios</p>
+        </main>
+    </div>
+</body>
+</html>
