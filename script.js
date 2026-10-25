@@ -48,20 +48,27 @@ async function carregarProdutos() {
     return;
   }
 
-  const { data, error } = await supabaseClient
-    .from("produtos")
-    .select("*")
-    .order("id", { ascending: true });
 
-  let produtos = data;
+const { data, error } = await supabaseClient
+  .from("produtos")
+  .select("*")
+  .order("id", { ascending: true });
 
-  if (pesquisa_produto) {
-    const textoPesquisa = pesquisa_produto.value.toLowerCase();
+if (error) {
+  console.error("Erro ao buscar produtos:", error);
+  return;
+}
 
-    produtos = produtos.filter(function (produto) {
-      return produto.nome.toLowerCase().includes(textoPesquisa);
-    });
-  }
+let produtos = data || [];
+
+if (pesquisa_produto) {
+  const textoPesquisa = pesquisa_produto.value.toLowerCase();
+
+  produtos = produtos.filter(function (produto) {
+    return produto.nome.toLowerCase().includes(textoPesquisa);
+  });
+}
+
 
   console.log("PRODUTOS RECEBIDOS:", data);
   console.log("ERRO:", error);
