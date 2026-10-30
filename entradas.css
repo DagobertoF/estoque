@@ -183,13 +183,22 @@ td {
   }
 
   .historico {
-    width: 100%;
-    overflow-x: auto;
-  }
+  width: 100%;
+  overflow-x: auto;
+}
 
-  .historico table {
-    min-width: 430px;
-  }
+.historico table {
+  width: 100%;
+  min-width: 0;
+  table-layout: fixed;
+}
+
+.historico th,
+.historico td {
+  padding: 6px 3px;
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
 
   th,
   td {
