@@ -305,14 +305,24 @@ td button:hover {
   }
 
   .menu a {
-    text-align: center;
-    font-size: 14px;
-    padding: 10px 6px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 8px;
+  min-height: 76px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1d4ed8;
+  border: 1px solid #1e40af;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.menu a:hover {
+  background-color: #1e40af;
+}
 
   .conteudo {
     width: 100%;
