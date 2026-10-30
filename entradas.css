@@ -133,7 +133,8 @@ td {
 }
 
 
-/* Responsividade da página de entradas */
+
+/* Responsividade da página de saídas */
 * {
   box-sizing: border-box;
 }
@@ -164,41 +165,42 @@ td {
     max-width: 100%;
   }
 
-  #form_entrada {
+  #form_saida {
     width: 100%;
     max-width: 400px;
     padding: 22px 16px;
     margin: 10px 0 30px;
   }
 
-  #form_entrada input,
+  #form_saida input,
   #produto {
     width: 100%;
     font-size: 16px;
   }
 
-  #form_entrada button {
+  #form_saida button {
     width: 100%;
     min-height: 44px;
   }
 
   .historico {
-  width: 100%;
-  overflow-x: auto;
-}
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 
-.historico table {
-  width: 100%;
-  min-width: 0;
-  table-layout: fixed;
-}
+  .historico table {
+    width: 100%;
+    min-width: 0;
+    table-layout: fixed;
+  }
 
-.historico th,
-.historico td {
-  padding: 6px 3px;
-  font-size: 11px;
-  overflow-wrap: anywhere;
-}
+  .historico th,
+  .historico td {
+    padding: 6px 3px;
+    font-size: 11px;
+    overflow-wrap: anywhere;
+  }
 
   th,
   td {
