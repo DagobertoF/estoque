@@ -132,6 +132,7 @@ td {
   text-align: center;
 }
 
+
 /* Responsividade da página de saídas */
 * {
   box-sizing: border-box;
@@ -184,10 +185,20 @@ td {
   .historico {
     width: 100%;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .historico table {
-    min-width: 430px;
+    width: 100%;
+    min-width: 0;
+    table-layout: fixed;
+  }
+
+  .historico th,
+  .historico td {
+    padding: 6px 3px;
+    font-size: 11px;
+    overflow-wrap: anywhere;
   }
 
   th,
