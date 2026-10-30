@@ -70,3 +70,43 @@ input:focus {
 button:hover {
   background-color: #1e40af;
 }
+
+
+/* Ajustes responsivos da tela de login */
+@media (max-width: 480px) {
+  body {
+    min-height: 100vh;
+    height: auto;
+    padding: 20px 0;
+    box-sizing: border-box;
+  }
+
+  .container {
+    width: calc(100% - 32px);
+    max-width: 600px;
+  }
+
+  .login {
+    width: 100%;
+    max-width: 330px;
+    box-sizing: border-box;
+    padding: 24px 20px;
+    margin-top: 16px;
+  }
+
+  .login input {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .login button {
+    width: 100%;
+    min-height: 44px;
+  }
+}
