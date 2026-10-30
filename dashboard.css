@@ -278,11 +278,13 @@ td button:hover {
   }
 
   .menu {
-    width: 100%;
-    min-height: auto;
-    padding: 12px 14px;
-    gap: 8px;
-  }
+  width: 100%;
+  min-height: auto;
+  padding: 12px 14px;
+  gap: 8px;
+  background-color: #f3f4f6;
+  border-right: 0;
+}
 
   .menu h2 {
     display: none;
