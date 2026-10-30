@@ -44,6 +44,46 @@ input {
   font-size: 18px;
 }
 
+/* Responsividade do cadastro de produtos */
+* {
+  box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  body {
+    min-height: 100vh;
+    height: auto;
+    padding: 24px 12px;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .container h1 {
+    font-size: 23px;
+    text-align: center;
+  }
+
+  .cadastro {
+    width: 100%;
+    max-width: 400px;
+    padding: 22px 16px;
+    margin-top: 12px;
+  }
+
+  .cadastro input {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .cadastro button {
+    width: 100%;
+    min-height: 44px;
+  }
+}
+
 .cadastro button {
   padding: 12px;
   border: solid white;
