@@ -131,3 +131,23 @@ td {
   padding: 10px;
   text-align: center;
 }
+
+@media (max-width: 600px) {
+  .historico {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .historico table {
+    width: 100%;
+    min-width: 0;
+    table-layout: fixed;
+  }
+
+  .historico th,
+  .historico td {
+    padding: 6px 3px;
+    font-size: 11px;
+    overflow-wrap: anywhere;
+  }
+}
