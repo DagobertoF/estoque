@@ -131,3 +131,43 @@ td {
   padding: 10px;
   text-align: center;
 }
+
+
+@media (max-width: 600px) {
+
+  .historico {
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .historico table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+  }
+
+  .historico th,
+  .historico td {
+    padding: 8px 4px;
+    font-size: 12px;
+    overflow-wrap: anywhere;
+    box-sizing: border-box;
+  }
+
+  .historico th:nth-child(1),
+  .historico td:nth-child(1) {
+    width: 30%;
+  }
+
+  .historico th:nth-child(2),
+  .historico td:nth-child(2) {
+    width: 25%;
+  }
+
+  .historico th:nth-child(3),
+  .historico td:nth-child(3) {
+    width: 45%;
+  }
+
+}
