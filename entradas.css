@@ -169,6 +169,7 @@ td {
   .container {
     width: 100%;
     max-width: 100%;
+    background-color: white;
   }
 
   #form_entrada {
