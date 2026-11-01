@@ -138,77 +138,42 @@ td {
   box-sizing: border-box;
 }
 
+
 @media (max-width: 600px) {
-  body {
-    width: 100%;
-    padding: 0 12px;
-  }
 
-  .cabecalho {
-    padding: 65px 10px 15px;
-  }
-
-  .cabecalho h1 {
-    font-size: 22px;
-  }
-
-  .cabecalho a {
-    top: 10px;
-    left: 10px;
-    padding: 9px 12px;
-    font-size: 14px;
-  }
-
-  .container {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  #form_saida {
-    width: 100%;
-    max-width: 400px;
-    padding: 22px 16px;
-    margin: 10px 0 30px;
-  }
-
-  #form_saida input,
-  #produto {
-    width: 100%;
-    font-size: 16px;
-  }
-
-  #form_saida button {
-    width: 100%;
-    min-height: 44px;
-  }
-
-  
   .historico {
     width: 100%;
-    max-width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
+    overflow: hidden;
   }
 
   .historico table {
     width: 100%;
-    min-width: 420px;
-    table-layout: auto;
+    table-layout: fixed;
     border-collapse: collapse;
   }
 
   .historico th,
   .historico td {
-    padding: 8px 6px;
+    padding: 8px 4px;
     font-size: 12px;
-    white-space: nowrap;
-    text-align: center;
+    overflow-wrap: anywhere;
+    box-sizing: border-box;
   }
 
-
-  th,
-  td {
-    padding: 9px;
-    font-size: 14px;
+  .historico th:nth-child(1),
+  .historico td:nth-child(1) {
+    width: 30%;
   }
+
+  .historico th:nth-child(2),
+  .historico td:nth-child(2) {
+    width: 25%;
+  }
+
+  .historico th:nth-child(3),
+  .historico td:nth-child(3) {
+    width: 45%;
+  }
+
 }
