@@ -156,6 +156,24 @@ td {
   font-size: 14px;
 }
 
+.cabecalho h1 {
+  margin: 0;
+  font-size: 34px;
+  text-align: center;
+}
+
+#form_saida {
+  width: 100%;
+  max-width: 400px;
+  padding: 22px 16px;
+  margin: 10px 0 30px;
+}
+
+#form_saida button {
+  width: 100%;
+  min-height: 44px;
+}
+
   .historico {
     width: 100%;
     box-sizing: border-box;
