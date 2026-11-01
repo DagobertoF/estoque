@@ -142,7 +142,18 @@ td {
 @media (max-width: 600px) {
 
 .cabecalho {
-  padding: 85px 10px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 15px 10px;
+}
+
+.cabecalho a {
+  position: static;
+  align-self: flex-start;
+  padding: 9px 12px;
+  font-size: 14px;
 }
 
   .historico {
